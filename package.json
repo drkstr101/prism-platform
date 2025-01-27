@@ -2,8 +2,17 @@
   "name": "@prism-platform/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
   "private": true,
+  "scripts": {
+    "check": "nx format:check && nx run-many -t lint stylelint test build",
+    "format": "prettier . --write",
+    "lint": "nx run-many -t lint stylelint",
+    "test": "nx run-many -t test",
+    "build": "nx run-many -t build",
+    "start": "nx run docs:serve",
+    "e2e": "nx run screenplay:e2e --skip-nx-cache",
+    "e2e:setup": "playwright install --with-deps"
+  },
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1"
