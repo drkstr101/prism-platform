@@ -1,0 +1,73 @@
+{
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.next": true,
+    "**/.nx": true,
+    "**/.svn": true,
+    "**/.yarn": true,
+    "**/CVS": true
+  },
+  "files.watcherExclude": {
+    "dist/**": true,
+    "tmp/**": true,
+    "**/.nx/**": true,
+    "**/.yarn/*/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "npm.packageManager": "pnpm",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "eslint.run": "onSave",
+  "eslint.nodePath": "./node_modules",
+  "eslint.validate": ["javascript", "typescript", "json"],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "shellcheck.enable": true,
+  "shellcheck.enableQuickFix": true,
+  "shellcheck.customArgs": ["--external-sources"],
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "scss", "postcss"],
+  "stylelint.packageManager": "pnpm",
+  "cSpell.words": [
+    "apsphysics",
+    "haml",
+    "htmlbeautifier",
+    "recma",
+    "rehype",
+    "rubocop",
+    "shiki",
+    "solargraph",
+    "yarnpkg"
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
