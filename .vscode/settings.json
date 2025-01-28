@@ -36,7 +36,7 @@
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "npm.packageManager": "pnpm",
+  "npm.packageManager": "yarn",
   "typescript.tsdk": "./node_modules/typescript/lib",
   "eslint.run": "onSave",
   "eslint.nodePath": "./node_modules",
@@ -49,7 +49,7 @@
   "shellcheck.customArgs": ["--external-sources"],
   "stylelint.enable": true,
   "stylelint.validate": ["css", "scss", "postcss"],
-  "stylelint.packageManager": "pnpm",
+  "stylelint.packageManager": "yarn",
   "cSpell.words": [
     "apsphysics",
     "haml",
