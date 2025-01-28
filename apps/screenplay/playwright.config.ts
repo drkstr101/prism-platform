@@ -26,7 +26,7 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'yarn nx run docs:preview',
-    url: 'http://localhost:4200',
+    url: 'http://localhost:4300',
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
   },
