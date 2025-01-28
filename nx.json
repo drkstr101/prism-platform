@@ -10,9 +10,13 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.cjs",
       "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/test-setup.[jt]s"
+      "!{projectRoot}/test-setup.[jt]s",
+      "!{projectRoot}/.stylelintrc(.(json|yml|yaml|js))?"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml",
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
   "nxCloudId": "6797365b1442284906ad9e58",
   "plugins": [
@@ -49,6 +53,10 @@
   "targetDefaults": {
     "e2e-ci--**/*": {
       "dependsOn": ["^build"]
+    },
+    "stylelint": {
+      "inputs": ["default", "{workspaceRoot}/.stylelintrc(.(json|yml|yaml|js))?"],
+      "cache": true
     }
   },
   "generators": {

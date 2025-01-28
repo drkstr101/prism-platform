@@ -1,5 +1,19 @@
 # Add files here to ignore them from prettier formatting
-/dist
+/.nx
+/.yarn
+/build
 /coverage
+/dist
+/node_modules
+
 /.nx/cache
 /.nx/workspace-data
+
+/examples/hello/**/*.*
+!/examples/hello/app/frontend/**/*.*
+
+**/.next/
+**/out/
+
+/yarn.lock
+/pnpm-lock.yaml
