@@ -86,10 +86,10 @@ ENV NX_BASE=main
 ######################
 
 # Use NodeJs 20 (min required version for bit)
-ARG node_version=lts/iron
-RUN nvm install ${node_version} && \
-  nvm use ${node_version} && \
-  nvm alias default ${node_version}
+# ARG node_version=lts/iron
+# RUN nvm install ${node_version} && \
+#  nvm use ${node_version} && \
+#  nvm alias default ${node_version}
 
 # Install bit
-RUN npx @teambit/bvm install --use-system-node --verbose
+# RUN npx @teambit/bvm install --use-system-node --verbose
