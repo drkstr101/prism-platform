@@ -2,10 +2,13 @@ image:
   file: Dockerfile.gitpod
 
 ports:
-  - name: Frontend application
+  - name: Docs
     port: 4200
     onOpen: open-preview
-  - name: PostgreSQL server
+  - name: Storybook
+    port: 3000
+    onOpen: open-preview
+  - name: Postgres
     port: 5432
     onOpen: ignore
 

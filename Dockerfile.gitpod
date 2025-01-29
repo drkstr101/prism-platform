@@ -7,12 +7,23 @@ ENV LANG=en_US.UTF-8
 # Dazzle does not rebuild a layer until one of its lines are changed. Increase this counter to rebuild this layer.
 ENV TRIGGER_REBUILD=3
 
-## Install packages
+## Install system packages
 ##########################
 
 RUN set -eux \
   && sudo apt-get update -y \
-  && sudo apt-get install -y locales libyaml-dev ca-certificates curl tar gzip libz-dev libssl-dev gcc make shellcheck
+  && sudo apt-get install -y \
+  locales \
+  libyaml-dev \
+  ca-certificates \
+  curl \
+  tar \
+  gzip \
+  libz-dev \
+  libssl-dev \
+  gcc \
+  make \
+  shellcheck
 
 ## Install Postgres
 ###################
@@ -43,48 +54,42 @@ ENV PGHOSTADDR="127.0.0.1"
 ENV PGDATABASE="postgres"
 COPY --chown=gitpod:gitpod tools/postgresql-hook.bash $HOME/.bashrc.d/200-postgresql-launch
 
-## Install Truffleruby
-######################
 
-# ARG TARGETPLATFORM=linux/amd64
-# ARG GRAALVM_VERSION=24.1.1
-# ARG GRAALVM_ARCH=linux-amd64
-# ARG RUBY_VERSION=truffleruby-${GRAALVM_VERSION}
-# ARG GRAALVM_PKG="https://github.com/oracle/truffleruby/releases/download/graal-${GRAALVM_VERSION}/${RUBY_VERSION}-${GRAALVM_ARCH}.tar.gz"
-# ENV  PATH="/opt/${RUBY_VERSION}/bin:${PATH}"
-
-# RUN set -eux \
-#   && mkdir -p /opt/${RUBY_VERSION} \
-#   && if [ "$TARGETPLATFORM" == "linux/amd64" ]; then (curl --fail --silent --location --retry 3 ${GRAALVM_PKG/GRAALVM_ARCH/linux-amd64} | gunzip | tar x -C /opt/${RUBY_VERSION} --strip-components=1) && /opt/${RUBY_VERSION}/lib/truffle/post_install_hook.sh; fi \
-#   && if [ "$TARGETPLATFORM" == "linux/arm64" ]; then (curl --fail --silent --location --retry 3 ${GRAALVM_PKG/GRAALVM_ARCH/linux-aarch64} | gunzip | tar x -C /opt/${RUBY_VERSION} --strip-components=1) && /opt/${RUBY_VERSION}/lib/truffle/post_install_hook.sh; fi \
-#   && sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
-#   && locale-gen \
-#   && echo "gem: --no-document" > ~/.gemrc
-
-## Setup environment
-######################
+## Setup user environment
+#########################
 
 USER gitpod
 SHELL ["/usr/bin/bash", "-c"]
 
 # Create alias for nx binary
-RUN printf 'alias nx=node_modules/.bin/nx' >> ~/.bashrc
+RUN printf 'alias nx=node_modules/.bin/nx' >> ~/.bashrc \
+  && printf 'alias y=yarn' >> ~/.bashrc
 
 ENV NX_BASE=main
 
-# Install gems
-# RUN gem install rails rubocop solargraph htmlbeautifier
+## Install Truffleruby
+######################
 
-# ARG _truffle_version=truffleruby-24.1.1
+# ARG _truffle_version=truffleruby-20.3.0
 # ARG _ruby_version=ruby-3.2.6
 # RUN printf "rvm_gems_path=/home/gitpod/.rvm\n" > ~/.rvmrc \
 #   && bash -lc "rvm uninstall ${_ruby_version}" \
 #   && bash -lc "rvm get master --auto-dotfiles" \
 #   && bash -lc "rvm reinstall ${_truffle_version} && rvm use ${_truffle_version} --default && gem install rails" \
 #   && printf "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc \
-#   && printf '{ rvm use $(rvm current); } >/dev/null 2>&1\n' > "$HOME/.bashrc.d/70-ruby" \
-#   && printf 'alias nx=node_modules/.bin/nx' >> ~/.bashrc
+#   && printf '{ rvm use $(rvm current); } >/dev/null 2>&1\n' > "$HOME/.bashrc.d/70-ruby"
 
-# ENV POSTGRES_DB=postgres
-# ENV POSTGRES_USER=test
-# ENV POSTGRES_PASS=test
+# Add global gems
+# RUN gem install rails rubocop solargraph htmlbeautifier
+
+## Setup Node
+######################
+
+# Use NodeJs 20 (min required version for bit)
+ARG node_version=lts/iron
+RUN nvm install ${node_version} && \
+  nvm use ${node_version} && \
+  nvm alias default ${node_version}
+
+# Install bit
+RUN npx @teambit/bvm install --use-system-node --verbose
