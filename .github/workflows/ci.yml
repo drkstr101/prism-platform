@@ -41,8 +41,8 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Initialize Bit
-        uses: bit-tasks/init@v2
+      - name: Install Bit
+        run: npx @teambit/bvm install
 
       - name: Resolve component packages from bit.cloud registry (Mandatory for component installation using package managers other than Bit)
         run: |
