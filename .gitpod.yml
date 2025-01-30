@@ -15,11 +15,11 @@ ports:
 tasks:
   - name: Setup
     init: |
-      yarn install
-      yarn e2e:setup
+      bit install
+      # yarn e2e:setup
       gp sync-done setup
     openMode: split-left
   - name: Start
     init: gp sync-await setup
-    command: yarn start
+    command: bit start
     openMode: split-right
