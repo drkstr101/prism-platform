@@ -1,0 +1,40 @@
+---
+labels: ['prism', 'harmony', 'platform']
+description: 'A Prism Harmony platform.'
+---
+
+The Prism platform composition. Composes the Prism platform features into a unified and executable platform.
+
+## Run the platform
+
+Run the Prism platform by running the following commands:
+
+```bash
+bit use prism
+```
+
+Run the platform:
+
+```bash
+bit run prism
+```
+
+Your platform is now listening to url shown in the command output.
+
+## Compose aspects
+
+You can create and compose new Aspects to the Prism platform by adding them to the `aspects` property in `prism.bit-app.ts`:
+
+```ts
+import { NewsAspect } from '@pied/news.news';
+
+export const Prism = HarmonyPlatform.from({
+  name: 'prism',
+
+  aspects: [
+    HeaderAspect,
+    // your new platform feature.
+    NewsAspect,
+  ],
+});
+```

@@ -1,0 +1,24 @@
+image:
+  file: Dockerfile.gitpod
+
+ports:
+  - name: Docs
+    port: 4200
+    onOpen: open-preview
+  - name: Frontend
+    port: 3000
+    onOpen: open-preview
+  - name: Postgres
+    port: 5432
+    onOpen: ignore
+
+tasks:
+  - name: Setup
+    init: |
+      bit install
+      gp sync-done setup
+    openMode: split-left
+  - name: Start
+    init: gp sync-await setup
+    command: bit run prism
+    openMode: split-right

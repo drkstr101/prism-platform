@@ -1,0 +1,33 @@
+---
+description: 'A useUserList React Hook.'
+labels: ['hook', 'react']
+---
+
+A react hook for retriving user data from the Prism platform API.
+
+## Get started
+
+Install and use the hook in your components:
+
+```tsx
+import { useUserList } from '@prism/people.hooks.use-user-list';
+
+export function UserCount() {
+  const users = useUserList();
+  if (!users) return null;
+
+  return <div>found {users.length} users</div>;
+}
+```
+
+## Mock data
+
+The component returns mock data for testing and preview purposes when running in a mock mode:
+
+```tsx
+import { useUserList } from '@prism/people.hooks.use-user-list';
+
+<MockProvider>
+  <UserCount />
+</MockProvider>;
+```

@@ -1,0 +1,64 @@
+---
+description: 'A pluggable People aspect. Can be used to provider a user UI and API.'
+labels: ['aspect', 'composition', 'extendability']
+---
+
+A plugable People aspect. Used to maintain people across the Wayne platform.
+
+## Get started
+
+Install the Aspect:
+
+```
+bit install @bitdev/harmony.examples.people 
+```
+
+## Compose to your platform
+
+Compose it to your Harmony platform:
+
+```ts
+import { WaynePlatformAspect } from '@bitdev/harmony.examples.wayne-platform';
+
+/**
+ * compose the wayne.com platform.
+ */    
+export const WayneCom = HarmonyPlatform.from({
+  name: 'wayne-com',
+
+  main: [WaynePlatformAspect],
+
+  runtimes: [
+    new UIRuntime(),
+    new NodeJSRuntime()
+  ],
+
+  aspects: [
+    [PeopleAspect, {
+      authProvider: 'bit'
+    }],
+  ]
+});
+
+export default WayneCom;
+```
+
+## Use the Aspect API
+
+Use it in your aspect dependencies to get access to the People aspect API from your aspect:
+
+```ts
+import { PeopleAspect, type PeopleUI } from '@bitdev/harmony.examples.people';
+
+export class MyAspectUI {
+  static dependencies = [PeopleAspect];
+
+  static async provider([people]: [PeopleUI]) {
+    return MyAspectUI();
+  }
+}
+```
+
+## Fork the aspect
+
+If you would like to customize the people aspect further to its capabilities you can fork the people aspect and cusotmize it for yourself.

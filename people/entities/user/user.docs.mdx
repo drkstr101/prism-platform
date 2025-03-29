@@ -1,0 +1,29 @@
+---
+labels: ['user', 'entity']
+description: 'A User entity.'
+---
+
+A component for a User entity, supports serialization and de-serialization of User objects and can be used from
+both backend and frontend.
+
+## Get started
+
+Install and use the entity to create a new instance:
+
+```ts
+const user = User.from({
+  username: 'Rodney',
+  displayName: 'Rodney Roberts'
+});
+```
+
+## Mock data
+
+You can use announcement mock data for development and testing purposes using the `userMock` API.
+
+```ts
+import { userMock } from '@acme/acme.discussions.discussion';
+
+const larry = userMock.larry;
+console.log(larry);
+```

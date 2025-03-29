@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "ms-playwright.playwright",
+    "naumovs.color-highlight",
+    "nrwl.angular-console",
+    "stylelint.vscode-stylelint",
+    "vitest.explorer",
+    "unifiedjs.vscode-mdx"
+  ]
+}
