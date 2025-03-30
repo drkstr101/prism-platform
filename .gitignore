@@ -1,12 +1,13 @@
 # ignored files and directories will (also) be excluded from your components.
 
 # Bit
-.bit
-public
+/.bit
+/public
+/tmp
 
 # Bit files - generated during bit ws-config write command
 tsconfig.json
-.eslintrc.json 
+.eslintrc.json
 .prettierrc.cjs
 # allow tsconfig from the env's config dir to be tracked
 !**/config/tsconfig.json
