@@ -11,27 +11,52 @@ permissions:
   actions: read
   contents: read
 
+env:
+  BIT_CONFIG_ACCESS_TOKEN: ${{ secrets.BIT_CONFIG_ACCESS_TOKEN }}
+
 jobs:
+  cache-docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Step to set a date-based cache key (daily refresh)
+      - name: Set date environment variable for Docker cache
+        run: echo "DOCKER_CACHE_DATE=$(date +%Y-%m-%d)" >> $GITHUB_ENV
+
+      # Step to cache the Docker image layers using the daily cache key
+      - name: Cache Docker layers
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.docker-cache
+          key: ${{ runner.os }}-docker-${{ env.DOCKER_CACHE_DATE }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
+      # Step to pull and save Docker image to cache
+      - name: Pull and save Docker image
+        run: |
+          mkdir -p /tmp/.docker-cache
+          if [ ! -f /tmp/.docker-cache/bitsrc-stable-latest-alpine.tar ]; then
+            docker pull bitsrc/stable:latest-alpine
+            docker save bitsrc/stable:latest-alpine -o /tmp/.docker-cache/bitsrc-stable-latest-alpine.tar
+          fi
+
+      # Step to load the cached Docker image
+      - name: Load cached Docker image
+        run: |
+          docker load -i /tmp/.docker-cache/bitsrc-stable-latest-alpine.tar
+
   main:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     container:
-      image: ghcr.io/bit-tasks/stable:latest-alpine # Use GitHub Container Registry image
+      image: bitsrc/stable:latest-alpine
       options: --user root
-
-    env:
-      BIT_CONFIG_ACCESS_TOKEN: 'secret'
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Verify Node.js installation
-        run: node -v
-
-      - name: Verify Git installation
-        run: git -v
 
       - name: Initialize Bit
         uses: bit-tasks/init@main
@@ -63,3 +88,6 @@ jobs:
           echo "PATH=${PATH}"
           echo "BIT_DISABLE_CONSOLE=${BIT_DISABLE_CONSOLE}"
           echo "BIT_DISABLE_SPINNER=${BIT_DISABLE_SPINNER}"
+
+      - name: Verify Build
+        run: bit build
