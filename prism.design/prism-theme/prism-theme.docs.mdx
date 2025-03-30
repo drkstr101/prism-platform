@@ -1,0 +1,83 @@
+---
+description: A theme defining the PrismTheme design language and design tokens.
+labels: ['react', 'design', 'theme']
+---
+
+A theme component for using the PrismTheme Design Language and tokens.
+
+## Get started
+
+To use the theme in your app, install the theme and apply it on your component tree.
+Themes are usually applied on the root of your component tree.
+
+```tsx
+export function MyApp() {
+  return (
+    <PrismTheme>
+      <Homepage />
+    </PrismTheme>
+  );
+}
+```
+
+## Change the color scheme
+
+Change the color scheme of the theme in the theme provider file:
+
+```ts
+export const PrismThemeProvider = createTheme<PrismThemeSchema>({
+  palette: {
+    primary: {
+      // choose your own color here to generate a color scheme!
+      origin: '#048A1B',
+    },
+  },
+  tokens: prismThemeTokens,
+});
+```
+
+## Add new tokens
+
+You can add new tokens to the theme, to add new tokens use your theme tokens file:
+
+```ts
+export const prismThemeTokens = () => {
+  return {
+    /**
+     * primary brand color. used for primary call to actions.
+     * such as buttons, links, etc.
+     */
+    primaryColor: 'black',
+
+    /**
+     * color to use for borders.
+     */
+    borderColor: '#ededed',
+
+    /**
+     * color for secondary surfaces on the screen such
+     * as cards or content outlines.
+     */
+    surfaceColor: '#ffffff',
+  };
+};
+```
+
+## Compose the theme
+
+You can compose your theme to create specific variations such as Dark or Light themes, overriding some or all of its properties.
+To compose your theme, create a new component and use the theme as following:
+
+```tsx
+const myTokenOverrides: WallyThemeSchema = {
+  backgroundColor: 'black',
+};
+
+export function MyApp() {
+  return (
+    <PrismTheme overrides={myTokenOverrides}>
+      <Homepage />
+    </PrismTheme>
+  );
+}
+```

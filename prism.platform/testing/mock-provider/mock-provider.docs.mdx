@@ -1,0 +1,31 @@
+---
+description: A Mock Provider component.
+---
+
+A Mock provider for testing components across the Prism platform. Use it to render components with mock data test components or render with mock data.
+
+## Basic usage
+
+Use the mock provider component:
+
+```js
+import { MockProvider } from '@prism/platform.testing.mock-provider';
+
+<MockProvider>
+  <MyComponent />
+</MockProvider>;
+```
+
+### Check if running in a Mocked context
+
+To determine whether a component is rendering in a mocked context, use the `useIsMocked` hook API:
+
+```js
+import { useIsMocked } from '@prism/platform.testing.mock-provider';
+
+export function useData() {
+  const isMocked = useIsMocked();
+  if (isMocked) return 'mocked';
+  return fetch();
+}
+```

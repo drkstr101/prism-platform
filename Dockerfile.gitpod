@@ -77,4 +77,5 @@ SHELL ["/usr/bin/bash", "-c"]
 #  nvm alias default ${node_version}
 
 # Install bit
-RUN npx @teambit/bvm@latest install
+RUN npx @teambit/bvm@latest install \
+  && ~/bin/bit config set analytics_reporting false

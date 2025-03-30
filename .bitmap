@@ -9,13 +9,35 @@
  */
 
 {
-    "entities/user": {
+    "content/card": {
+        "name": "content/card",
+        "scope": "",
+        "version": "",
+        "defaultScope": "prism.design",
+        "mainFile": "index.ts",
+        "rootDir": "prism.design/content/card",
+        "config": {
+            "bitdev.react/react-env@3.0.0": {},
+            "teambit.envs/envs": {
+                "env": "bitdev.react/react-env"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.semantics/schema": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "eop.accounts/entities/user": {
         "name": "entities/user",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.people",
+        "defaultScope": "eop.accounts",
         "mainFile": "index.ts",
-        "rootDir": "people/entities/user",
+        "rootDir": "eop.accounts/entities/user",
         "config": {
             "bitdev.node/node-env@4.0.15": {},
             "teambit.envs/envs": {
@@ -31,13 +53,35 @@
             "teambit.component/forking": {}
         }
     },
+    "hooks/use-auth": {
+        "name": "hooks/use-auth",
+        "scope": "",
+        "version": "",
+        "defaultScope": "eop.accounts",
+        "mainFile": "index.ts",
+        "rootDir": "eop.accounts/hooks/use-auth",
+        "config": {
+            "teambit.envs/envs": {
+                "env": "bitdev.react/react-env"
+            },
+            "bitdev.react/react-env@3.0.0": {},
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.semantics/schema": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {}
+        }
+    },
     "hooks/use-user-list": {
         "name": "hooks/use-user-list",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.people",
+        "defaultScope": "eop.accounts",
         "mainFile": "index.ts",
-        "rootDir": "people/hooks/use-user-list",
+        "rootDir": "eop.accounts/hooks/use-user-list",
         "config": {
             "bitdev.react/react-env@4.0.19": {},
             "teambit.envs/envs": {
@@ -53,13 +97,35 @@
             "teambit.component/forking": {}
         }
     },
+    "layout/header": {
+        "name": "layout/header",
+        "scope": "",
+        "version": "",
+        "defaultScope": "prism.platform",
+        "mainFile": "index.ts",
+        "rootDir": "prism.platform/layout/header",
+        "config": {
+            "bitdev.react/react-env@3.0.0": {},
+            "teambit.envs/envs": {
+                "env": "bitdev.react/react-env"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.semantics/schema": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {}
+        }
+    },
     "people": {
         "name": "people",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.people",
+        "defaultScope": "eop.accounts",
         "mainFile": "index.ts",
-        "rootDir": "people/people",
+        "rootDir": "eop.accounts/people",
         "config": {
             "bitdev.symphony/envs/symphony-env@3.0.18": {},
             "teambit.dependencies/dependency-resolver": {},
@@ -81,7 +147,7 @@
         "version": "",
         "defaultScope": "prism.platform",
         "mainFile": "index.ts",
-        "rootDir": "platform/prism",
+        "rootDir": "prism.platform/prism",
         "config": {
             "bitdev.symphony/envs/symphony-env@3.0.18": {},
             "teambit.dependencies/dependency-resolver": {
@@ -106,7 +172,7 @@
         "version": "",
         "defaultScope": "prism.platform",
         "mainFile": "index.ts",
-        "rootDir": "platform/prism-platform",
+        "rootDir": "prism.platform/prism-platform",
         "config": {
             "bitdev.symphony/envs/symphony-env@3.0.18": {},
             "teambit.envs/envs": {
@@ -122,13 +188,79 @@
             "teambit.component/forking": {}
         }
     },
+    "prism-theme": {
+        "name": "prism-theme",
+        "scope": "",
+        "version": "",
+        "defaultScope": "prism.design",
+        "mainFile": "index.ts",
+        "rootDir": "prism.design/prism-theme",
+        "config": {
+            "bitdev.react/react-env@3.0.0": {},
+            "teambit.envs/envs": {
+                "env": "bitdev.react/react-env"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.semantics/schema": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "prism.platform/entities/user": {
+        "name": "entities/user",
+        "scope": "",
+        "version": "",
+        "defaultScope": "prism.platform",
+        "mainFile": "index.ts",
+        "rootDir": "prism.platform/entities/user",
+        "config": {
+            "bitdev.node/node-env@3.0.0": {},
+            "teambit.envs/envs": {
+                "env": "bitdev.node/node-env"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.semantics/schema": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "testing/mock-provider": {
+        "name": "testing/mock-provider",
+        "scope": "",
+        "version": "",
+        "defaultScope": "prism.platform",
+        "mainFile": "index.ts",
+        "rootDir": "prism.platform/testing/mock-provider",
+        "config": {
+            "bitdev.react/react-env@3.0.0": {},
+            "teambit.envs/envs": {
+                "env": "bitdev.react/react-env"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {},
+            "teambit.semantics/schema": {}
+        }
+    },
     "ui/dashboard": {
         "name": "ui/dashboard",
         "scope": "",
         "version": "",
         "defaultScope": "prism.platform",
         "mainFile": "index.ts",
-        "rootDir": "platform/ui/dashboard",
+        "rootDir": "prism.platform/ui/dashboard",
         "config": {
             "bitdev.react/react-env@4.0.19": {},
             "teambit.envs/envs": {
@@ -148,9 +280,9 @@
         "name": "ui/people-lobby",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.people",
+        "defaultScope": "eop.accounts",
         "mainFile": "index.ts",
-        "rootDir": "people/ui/people-lobby",
+        "rootDir": "eop.accounts/ui/people-lobby",
         "config": {
             "bitdev.react/react-env@4.0.19": {},
             "teambit.envs/envs": {
@@ -170,9 +302,9 @@
         "name": "ui/user-card",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.people",
+        "defaultScope": "eop.accounts",
         "mainFile": "index.ts",
-        "rootDir": "people/ui/user-card",
+        "rootDir": "eop.accounts/ui/user-card",
         "config": {
             "bitdev.react/react-env@4.0.19": {},
             "teambit.envs/envs": {

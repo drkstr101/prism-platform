@@ -1,0 +1,49 @@
+---
+title: Header
+description: A header component for the Prism platform.
+labels: [header, navigation]
+---
+
+The `Header` component provides a consistent header structure for your acme-platform application. It supports a logo, navigation links, and call-to-action buttons.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `Header` component with a logo, links, and actions.
+
+```jsx
+<Header
+  logo={<img src="https://example.com/logo.svg" alt="Acme Logo" />}
+  links={[
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Contact', path: '/contact' },
+  ]}
+  actions={[Button]}
+/>
+```
+
+## Header with No Actions
+
+This example shows how to use the `Header` component without any call-to-action buttons.
+
+```jsx
+<Header
+  logo={<img src="https://example.com/logo.svg" alt="Acme Logo" />}
+  links={[
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Contact', path: '/contact' },
+  ]}
+/>
+```
+
+## Header with No Links
+
+This example demonstrates how to use the `Header` component without any navigation links.
+
+```jsx
+<Header
+  logo={<img src="https://example.com/logo.svg" alt="Acme Logo" />}
+  actions={[Button]}
+/>
+```
