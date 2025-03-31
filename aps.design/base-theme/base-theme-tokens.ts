@@ -1,8 +1,8 @@
 /**
- * PrismTheme tokens.
+ * BaseTheme tokens.
  * Include your custom tokens in this file (on top of the sparks tokens).
  */
-export function prismThemeTokens() {
+export function baseThemeTokens() {
   const tokens = {
     /**
      * Background color. Use for primary surfaces across your design.
@@ -187,4 +187,4 @@ export function prismThemeTokens() {
 // create a theme type schema to allow new theme to override
 // or implement a different theme variation like dark theme.
 // in case tokens are dynamically loaded from a json file, please declare this variable an an interface.
-export type PrismThemeSchema = ReturnType<typeof prismThemeTokens>;
+export type BaseThemeSchema = ReturnType<typeof baseThemeTokens>;

@@ -9,13 +9,13 @@
  */
 
 {
-    "content/card": {
-        "name": "content/card",
+    "base-theme": {
+        "name": "base-theme",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.design",
+        "defaultScope": "aps.design",
         "mainFile": "index.ts",
-        "rootDir": "prism.design/content/card",
+        "rootDir": "aps.design/base-theme",
         "config": {
             "bitdev.react/react-env@3.0.0": {},
             "teambit.envs/envs": {
@@ -31,7 +31,7 @@
             "teambit.component/forking": {}
         }
     },
-    "eop.accounts/entities/user": {
+    "entities/user": {
         "name": "entities/user",
         "scope": "",
         "version": "",
@@ -188,57 +188,13 @@
             "teambit.component/forking": {}
         }
     },
-    "prism-theme": {
-        "name": "prism-theme",
-        "scope": "",
-        "version": "",
-        "defaultScope": "prism.design",
-        "mainFile": "index.ts",
-        "rootDir": "prism.design/prism-theme",
-        "config": {
-            "bitdev.react/react-env@3.0.0": {},
-            "teambit.envs/envs": {
-                "env": "bitdev.react/react-env"
-            },
-            "teambit.dependencies/dependency-resolver": {},
-            "teambit.component/dev-files": {},
-            "teambit.preview/preview": {},
-            "teambit.compositions/compositions": {},
-            "teambit.docs/docs": {},
-            "teambit.pipelines/builder": {},
-            "teambit.semantics/schema": {},
-            "teambit.component/forking": {}
-        }
-    },
-    "prism.platform/entities/user": {
-        "name": "entities/user",
-        "scope": "",
-        "version": "",
-        "defaultScope": "prism.platform",
-        "mainFile": "index.ts",
-        "rootDir": "prism.platform/entities/user",
-        "config": {
-            "bitdev.node/node-env@3.0.0": {},
-            "teambit.envs/envs": {
-                "env": "bitdev.node/node-env"
-            },
-            "teambit.dependencies/dependency-resolver": {},
-            "teambit.component/dev-files": {},
-            "teambit.preview/preview": {},
-            "teambit.compositions/compositions": {},
-            "teambit.docs/docs": {},
-            "teambit.pipelines/builder": {},
-            "teambit.semantics/schema": {},
-            "teambit.component/forking": {}
-        }
-    },
     "testing/mock-provider": {
         "name": "testing/mock-provider",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.platform",
+        "defaultScope": "aps.design",
         "mainFile": "index.ts",
-        "rootDir": "prism.platform/testing/mock-provider",
+        "rootDir": "aps.design/testing/mock-provider",
         "config": {
             "bitdev.react/react-env@3.0.0": {},
             "teambit.envs/envs": {
@@ -254,13 +210,35 @@
             "teambit.semantics/schema": {}
         }
     },
-    "ui/dashboard": {
-        "name": "ui/dashboard",
+    "ui/molecules/card": {
+        "name": "ui/molecules/card",
         "scope": "",
         "version": "",
-        "defaultScope": "prism.platform",
+        "defaultScope": "aps.design",
         "mainFile": "index.ts",
-        "rootDir": "prism.platform/ui/dashboard",
+        "rootDir": "aps.design/ui/molecules/card",
+        "config": {
+            "bitdev.react/react-env@3.0.0": {},
+            "teambit.envs/envs": {
+                "env": "bitdev.react/react-env"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.semantics/schema": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "ui/molecules/dashboard": {
+        "name": "ui/molecules/dashboard",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/ui/molecules/dashboard",
         "config": {
             "bitdev.react/react-env@4.0.19": {},
             "teambit.envs/envs": {

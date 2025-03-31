@@ -1,18 +1,18 @@
 import { createTheme } from '@bitdesign/sparks.sparks-theme';
-import { PrismThemeSchema, prismThemeTokens } from './prism-theme-tokens.js';
+import { BaseThemeSchema, baseThemeTokens } from './base-theme-tokens.js';
 
 /**
- * creating and declaring the prism-theme theme.
+ * creating and declaring the base-theme theme.
  * define the theme schema as a type variable for proper type completions.
  */
-export const PrismThemeProvider = createTheme<PrismThemeSchema>({
+export const BaseThemeProvider = createTheme<BaseThemeSchema>({
   palette: {
     primary: {
       // choose your own color here to generate a color scheme!
       origin: '#048A1B',
     },
   },
-  tokens: prismThemeTokens,
+  tokens: baseThemeTokens,
   // add the sparks tokens.
   includeSparksTokens: true,
 });
@@ -21,4 +21,4 @@ export const PrismThemeProvider = createTheme<PrismThemeSchema>({
  * a react hook for contextual access to design token
  * from components.
  */
-export const { useTheme } = PrismThemeProvider;
+export const { useTheme } = BaseThemeProvider;

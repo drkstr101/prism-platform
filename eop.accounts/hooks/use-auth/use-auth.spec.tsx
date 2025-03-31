@@ -1,5 +1,5 @@
+import { MockProvider } from '@aps/design.testing.mock-provider';
 import { userMock } from '@eop/accounts.entities.user';
-import { MockProvider } from '@prism/platform.testing.mock-provider';
 import { act, renderHook } from '@testing-library/react';
 import { useAuth } from './use-auth.js';
 

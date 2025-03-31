@@ -1,8 +1,9 @@
+import type { ReactNode } from 'react';
+
+import { Card } from '@aps/design.ui.molecules.card';
 import { Heading } from '@bitdesign/sparks.typography.heading';
 import { Text } from '@bitdesign/sparks.typography.text';
 import { User } from '@eop/accounts.entities.user';
-import { Card } from '@prism/design.content.card';
-import type { ReactNode } from 'react';
 
 export type UserCardProps = {
   /**

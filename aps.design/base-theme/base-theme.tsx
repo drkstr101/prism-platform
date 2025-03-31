@@ -1,9 +1,9 @@
 import cn from 'clsx';
 import { ReactNode } from 'react';
-import { PrismThemeProvider } from './prism-theme-provider.js';
-import styles from './prism-theme.module.scss';
+import { BaseThemeProvider } from './base-theme-provider.js';
+import styles from './base-theme.module.scss';
 
-export type PrismThemeProps = {
+export type BaseThemeProps = {
   /**
    * a root ReactNode for the component tree
    * applied with the theme.
@@ -20,13 +20,13 @@ export type PrismThemeProps = {
  * a theme for the Acme organization.
  * it provides tokens, fonts and general styling for all components.
  */
-export function PrismTheme({ children, className, ...rest }: PrismThemeProps) {
+export function BaseTheme({ children, className, ...rest }: BaseThemeProps) {
   return (
-    <PrismThemeProvider.ThemeProvider
+    <BaseThemeProvider.ThemeProvider
       {...rest}
-      className={cn(styles.prismTheme, className)}
+      className={cn(styles.baseTheme, className)}
     >
       {children}
-    </PrismThemeProvider.ThemeProvider>
+    </BaseThemeProvider.ThemeProvider>
   );
 }

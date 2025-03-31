@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
+import { useIsMock } from '@aps/design.testing.mock-provider';
 import { User, userMock } from '@eop/accounts.entities.user';
-import { useIsMock } from '@prism/platform.testing.mock-provider';
 
 export const LIST_USERS = gql`
   query LIST_USERS {

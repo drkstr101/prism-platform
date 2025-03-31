@@ -1,5 +1,5 @@
 import { MockedProvider } from '@apollo/client/testing/index.js';
-import { PrismTheme } from '@prism/design.prism-theme';
+import { BaseTheme } from '@aps/design.base-theme';
 import type { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { EmptyContainer } from './empty-container.js';
@@ -31,7 +31,7 @@ export function MockProvider({
   noRouter,
   noTheme,
 }: MockProviderProps) {
-  const Theme = noTheme ? EmptyContainer : PrismTheme;
+  const Theme = noTheme ? EmptyContainer : BaseTheme;
   const Router = noRouter ? EmptyContainer : MemoryRouter;
 
   return (

@@ -1,4 +1,4 @@
-import { MockProvider } from '@prism/platform.testing.mock-provider';
+import { MockProvider } from '@aps/design.testing.mock-provider';
 import { renderHook } from '@testing-library/react';
 import { useUserList } from './use-user-list.js';
 

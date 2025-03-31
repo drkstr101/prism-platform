@@ -1,5 +1,5 @@
+import { MockProvider } from '@aps/design.testing.mock-provider';
 import { SlotPreview } from '@bitdev/harmony.preview.slot-preview';
-import { MockProvider } from '@prism/platform.testing.mock-provider';
 import { Dashboard } from './dashboard.js';
 
 const WelcomePanel = {

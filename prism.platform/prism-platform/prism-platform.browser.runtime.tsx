@@ -1,3 +1,5 @@
+import { BaseTheme } from '@aps/design.base-theme';
+import { Dashboard, Panel } from '@aps/design.ui.molecules.dashboard';
 import type { Route } from '@bitdev/symphony.frontends.route';
 import {
   SymphonyPlatformAspect,
@@ -5,9 +7,7 @@ import {
   type TopLevelComponent,
   type TopLevelSlot,
 } from '@bitdev/symphony.symphony-platform';
-import { PrismTheme } from '@prism/design.prism-theme';
 import { Header, type HeaderLink } from '@prism/platform.layout.header';
-import { Dashboard, Panel } from '@prism/platform.ui.dashboard';
 import { HeaderAction, HeaderActionSlot, HeaderLinkSlot } from './header.js';
 import { PanelSlot } from './panel.js';
 import type { PrismPlatformConfig } from './prism-platform-config.js';
@@ -189,7 +189,7 @@ export class PrismPlatformBrowser {
     });
 
     symphonyPlatform.registerTheme((props) => {
-      return <PrismTheme {...props} />;
+      return <BaseTheme {...props} />;
     });
 
     return prismPlatform;

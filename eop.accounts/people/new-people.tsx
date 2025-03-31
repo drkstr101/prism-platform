@@ -1,7 +1,7 @@
+import { Card } from '@aps/design.ui.molecules.card';
 import { Flex } from '@bitdesign/sparks.layout.flex';
 import { Text } from '@bitdesign/sparks.typography.text';
 import { useUserList } from '@eop/accounts.hooks.use-user-list';
-import { Card } from '@prism/design.content.card';
 
 export function NewPeople() {
   const people = useUserList();

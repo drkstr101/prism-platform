@@ -1,9 +1,9 @@
 ---
-description: A theme defining the PrismTheme design language and design tokens.
+description: A theme defining the BaseTheme design language and design tokens.
 labels: ['react', 'design', 'theme']
 ---
 
-A theme component for using the PrismTheme Design Language and tokens.
+A theme component for using the BaseTheme Design Language and tokens.
 
 ## Get started
 
@@ -13,9 +13,9 @@ Themes are usually applied on the root of your component tree.
 ```tsx
 export function MyApp() {
   return (
-    <PrismTheme>
+    <BaseTheme>
       <Homepage />
-    </PrismTheme>
+    </BaseTheme>
   );
 }
 ```
@@ -25,14 +25,14 @@ export function MyApp() {
 Change the color scheme of the theme in the theme provider file:
 
 ```ts
-export const PrismThemeProvider = createTheme<PrismThemeSchema>({
+export const BaseThemeProvider = createTheme<BaseThemeSchema>({
   palette: {
     primary: {
       // choose your own color here to generate a color scheme!
       origin: '#048A1B',
     },
   },
-  tokens: prismThemeTokens,
+  tokens: baseThemeTokens,
 });
 ```
 
@@ -41,7 +41,7 @@ export const PrismThemeProvider = createTheme<PrismThemeSchema>({
 You can add new tokens to the theme, to add new tokens use your theme tokens file:
 
 ```ts
-export const prismThemeTokens = () => {
+export const baseThemeTokens = () => {
   return {
     /**
      * primary brand color. used for primary call to actions.
@@ -75,9 +75,9 @@ const myTokenOverrides: WallyThemeSchema = {
 
 export function MyApp() {
   return (
-    <PrismTheme overrides={myTokenOverrides}>
+    <BaseTheme overrides={myTokenOverrides}>
       <Homepage />
-    </PrismTheme>
+    </BaseTheme>
   );
 }
 ```
