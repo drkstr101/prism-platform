@@ -1,0 +1,20 @@
+---
+labels: ['TailwindVite', 'module']
+description: 'A Tailwind Vite transformer module.'
+---
+
+A Tailwind Vite transformer module.
+
+```ts
+import { getViteTransformer } from '@aps/design.transformers.tailwind-vite';
+
+const contentModuleList: string[] = [
+  '@aps/design.examples.vue.*',
+];
+
+const theme = {...}
+
+const plugins = [...]
+
+export default getViteTransformer(contentModuleList, theme, plugins);
+```

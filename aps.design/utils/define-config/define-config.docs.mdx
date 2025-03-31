@@ -1,0 +1,34 @@
+---
+labels: ['tailwind', 'config', 'node']
+description: 'Module for using Tailwind CSS in a Bit Workspace.'
+---
+
+# Define Config
+
+This module allows you to define a Tailwind CSS configuration to work with in your Bit Workspace.
+
+## How to use
+
+Just import the `defineConfig` function from the module and use it to define your Tailwind CSS configuration.
+The function receives an object with the configuration options and returns the configuration object. The function will automatically add all the needed files to the content key.
+
+```ts
+import { defineConfig } from '@aps/design.utils.define-config';
+
+export default defineConfig({
+  theme: {
+    extend: {
+      colors: {
+        primary: '#3490dc',
+        secondary: '#ffed4a',
+        danger: '#e3342f',
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
+});
+```

@@ -1,0 +1,144 @@
+---
+labels: ['tailwind', 'css', 'plugin', 'bit', 'workspaces']
+description: 'A TailwindCSS plugin for Bit.'
+---
+
+# Tailwind CSS Integration for Bit
+
+This plugin allows you to use TailwindCSS inside a Bit workspace.
+It will automatically link your files and components to the correct paths, so Tailwind can scan the content.
+
+## Installation
+
+First, ensure you have TailwindCSS installed in your project. If not, you can install it using Bit:
+
+```bash
+bit install tailwindcss
+```
+
+:::info
+Some apps may require to install Autoprefixer and PostCSS as well. You can install them using Bit:
+
+```bash
+bit install autoprefixer postcss
+```
+
+:::
+
+Then, add the plugin to your Workspace:
+
+```bash
+bit install @aps/design.plugin
+```
+
+## Configuration
+
+To configure TailwindCSS to work with Bit components, modify your `tailwind.config.js` as follows:
+
+```ts
+import { Plugin } from '@aps/design.plugin';
+
+const plugin = new Plugin({
+  components: ['@my-org/my-scope.ui.button', 'some-ui-library'], // List of components to scan (Bit and NPM components/packages are supported)
+  content: ['./**/*.{js,jsx,ts,tsx}'], // Paths to your other source files in your app
+  cwd: __dirname, // Where the paths should be resolved from, usually the same directory as your tailwind.config.js
+});
+
+export default {
+  plugins: [plugin.apply()],
+};
+```
+
+:::info
+When using the Plugin, you should not add a `content` key to your Tailwind configuration.
+Tailwind will remove the plugin's content paths if the key is present. If you need to add custom content paths, use the `plugin.merge()` method instead.
+:::
+
+### Methods
+
+#### `apply()`
+
+Applies the plugin to the Tailwind configuration:
+
+```ts
+export default {
+  plugins: [plugin.apply()],
+};
+```
+
+#### `merge(config)`
+
+Merges the custom content paths with the existing Tailwind configuration:
+
+```ts
+const existingConfig = require('./tailwind.config.js');
+module.exports = plugin.merge(existingConfig);
+```
+
+### Typescript Support
+
+The plugin provides a custom configuration type for TypeScript users:
+
+```ts
+import { Plugin, type Config } from '@aps/design.plugin';
+
+const plugin = new Plugin({
+  components: ['@my-org/my-scope.ui.button', 'some-ui-library'],
+  content: ['./**/*.{js,jsx,ts,tsx}'],
+  cwd: __dirname,
+});
+
+const config: Config = {
+  // TS2353 - You can't pass property content to type Config.
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  plugins: [plugin.apply()],
+};
+
+export default config;
+```
+
+## Possible Issues
+
+### PostCSS complains about missing `tailwindcss` plugin
+
+If you see an error like this you may need to set Tailwind as a dependency of the app, there are 2 ways to do this:
+
+1. Add Tailwind as a dependency using `bit deps`
+
+```bash
+bit deps set apps/my-app tailwindcss
+```
+
+2. Import Tailwind in your `postcss.config.[js|cjs]` file
+
+```js
+module.exports = {
+  plugins: {
+    [require.resolve('tailwindcss')]: {
+      config: require('./tailwind.config.cjs'),
+    },
+    // other plugins...
+  },
+};
+```
+
+### Tailwind does not find any files or components
+
+If Tailwind does not find any files or components, first ensure that the paths are correct in your `tailwind.config.js`.
+If the paths and components/packages are correct, you may need to change the config file from TS/ESM to CJS:
+
+```js
+/* @filename: tailwind.config.cjs */
+const { Plugin } = require('@aps/design.plugin');
+
+const plugin = new Plugin({
+  components: ['@my-org/my-scope.ui.button', 'some-ui-library'],
+  content: ['./**/*.{js,jsx,ts,tsx}'],
+  cwd: __dirname,
+});
+
+module.exports = {
+  // ...
+  plugins: [plugin.apply()],
+};
+```

@@ -31,6 +31,28 @@
             "teambit.component/forking": {}
         }
     },
+    "config/tailwind": {
+        "name": "config/tailwind",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/config/tailwind",
+        "config": {
+            "teambit.node/node@1.0.101": {},
+            "teambit.envs/envs": {
+                "env": "teambit.node/node"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.preview/preview": {},
+            "teambit.component/dev-files": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {},
+            "teambit.semantics/schema": {}
+        }
+    },
     "entities/user": {
         "name": "entities/user",
         "scope": "",
@@ -44,6 +66,86 @@
                 "env": "bitdev.node/node-env"
             },
             "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.semantics/schema": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "envs/tw-react-env": {
+        "name": "envs/tw-react-env",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/envs/tw-react-env",
+        "config": {
+            "bitdev.general/envs/bit-env@1.0.16": {},
+            "teambit.envs/envs": {
+                "env": "bitdev.general/envs/bit-env"
+            },
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@apollo/client": "^3.8.10"
+                    }
+                }
+            },
+            "teambit.component/dev-files": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.semantics/schema": {},
+            "teambit.component/forking": {},
+            "teambit.harmony/application": {}
+        }
+    },
+    "examples/button": {
+        "name": "examples/button",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/examples/button",
+        "config": {
+            "frontend.tailwind/envs/tw-react-env@1.1.0": {},
+            "teambit.envs/envs": {
+                "env": "frontend.tailwind/envs/tw-react-env"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.semantics/schema": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "examples/vite-app": {
+        "name": "examples/vite-app",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/examples/vite-app",
+        "config": {
+            "frontend.tailwind/envs/tw-react-env@1.1.1": {},
+            "teambit.envs/envs": {
+                "env": "frontend.tailwind/envs/tw-react-env"
+            },
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "tailwindcss": "3.4.3"
+                    }
+                }
+            },
+            "teambit.harmony/application": {},
             "teambit.component/dev-files": {},
             "teambit.preview/preview": {},
             "teambit.compositions/compositions": {},
@@ -141,6 +243,35 @@
             "teambit.semantics/schema": {}
         }
     },
+    "plugin": {
+        "name": "plugin",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/plugin",
+        "config": {
+            "teambit.node/node@1.0.101": {},
+            "teambit.envs/envs": {
+                "env": "teambit.node/node"
+            },
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "peerDependencies": {
+                        "tailwindcss": "3.4.3"
+                    }
+                }
+            },
+            "teambit.component/dev-files": {},
+            "teambit.semantics/schema": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.harmony/application": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {}
+        }
+    },
     "prism": {
         "name": "prism",
         "scope": "",
@@ -208,6 +339,28 @@
             "teambit.pipelines/builder": {},
             "teambit.component/forking": {},
             "teambit.semantics/schema": {}
+        }
+    },
+    "transformers/tailwind-vite": {
+        "name": "transformers/tailwind-vite",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/transformers/tailwind-vite",
+        "config": {
+            "teambit.node/node@1.0.101": {},
+            "teambit.envs/envs": {
+                "env": "teambit.node/node"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.semantics/schema": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {}
         }
     },
     "ui/molecules/card": {
@@ -295,6 +448,50 @@
             "teambit.docs/docs": {},
             "teambit.pipelines/builder": {},
             "teambit.semantics/schema": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "utils/define-config": {
+        "name": "utils/define-config",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/utils/define-config",
+        "config": {
+            "teambit.node/node@1.0.101": {},
+            "teambit.envs/envs": {
+                "env": "teambit.node/node"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.semantics/schema": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {}
+        }
+    },
+    "utils/get-tailwind-content": {
+        "name": "utils/get-tailwind-content",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/utils/get-tailwind-content",
+        "config": {
+            "teambit.node/node@1.0.101": {},
+            "teambit.envs/envs": {
+                "env": "teambit.node/node"
+            },
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.component/dev-files": {},
+            "teambit.semantics/schema": {},
+            "teambit.preview/preview": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
             "teambit.component/forking": {}
         }
     },

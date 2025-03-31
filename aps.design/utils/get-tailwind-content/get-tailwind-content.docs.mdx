@@ -1,0 +1,21 @@
+---
+labels: ['tailwind', 'utils']
+description: 'A util to get the content of tailwind config from bit context.'
+---
+
+A util to get the content of tailwind config from bit context.
+
+```ts
+type Context = {
+  mode: 'development';
+  devServerContext: DevServerContext;
+  devServerAspectsContext: {
+    workspace: Workspace;
+  };
+} | {
+  mode: 'production';
+  bundlerContext: BundlerContext;
+}
+
+getTailwindContent(context: Context): Promise<string[]>;
+```
