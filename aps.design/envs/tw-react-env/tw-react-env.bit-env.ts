@@ -1,9 +1,7 @@
 import { tailwindConfig } from '@aps/design.config.tailwind';
-import { TailwindWorkspaceStarter } from '@aps/design.generators.tailwind-starter';
 import { tailwindTransformer } from '@aps/design.transformers.tailwind';
 import { ReactEnv } from '@bitdev/react.react-env';
-import type { EnvContext, EnvHandler } from '@teambit/envs';
-import { StarterList } from '@teambit/generator';
+import type { EnvHandler } from '@teambit/envs';
 import type { Preview } from '@teambit/preview';
 import { ReactPreview } from '@teambit/preview.react-preview';
 import { NativeCompileCache } from '@teambit/toolbox.performance.v8-cache';
@@ -34,9 +32,9 @@ export class TwReactEnv extends ReactEnv {
     });
   }
 
-  starters(): (context: EnvContext) => StarterList {
-    return StarterList.from([TailwindWorkspaceStarter.from()]);
-  }
+  // starters(): (context: EnvContext) => StarterList {
+  //   return StarterList.from([TailwindWorkspaceStarter.from()]);
+  // }
 
   protected previewMounter = cjsRequire.resolve('./preview/mounter.js');
 }

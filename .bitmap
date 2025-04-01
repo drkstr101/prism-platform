@@ -112,9 +112,9 @@
         "mainFile": "index.ts",
         "rootDir": "aps.design/examples/button",
         "config": {
-            "frontend.tailwind/envs/tw-react-env@1.1.0": {},
+            "aps.design/envs/tw-react-env": {},
             "teambit.envs/envs": {
-                "env": "frontend.tailwind/envs/tw-react-env"
+                "env": "aps.design/envs/tw-react-env"
             },
             "teambit.dependencies/dependency-resolver": {},
             "teambit.component/dev-files": {},
@@ -134,9 +134,9 @@
         "mainFile": "index.ts",
         "rootDir": "aps.design/examples/vite-app",
         "config": {
-            "frontend.tailwind/envs/tw-react-env@1.1.1": {},
+            "aps.design/envs/tw-react-env": {},
             "teambit.envs/envs": {
-                "env": "frontend.tailwind/envs/tw-react-env"
+                "env": "aps.design/envs/tw-react-env"
             },
             "teambit.dependencies/dependency-resolver": {
                 "policy": {
@@ -338,6 +338,41 @@
             "teambit.docs/docs": {},
             "teambit.pipelines/builder": {},
             "teambit.component/forking": {},
+            "teambit.semantics/schema": {}
+        }
+    },
+    "transformers/tailwind": {
+        "name": "transformers/tailwind",
+        "scope": "",
+        "version": "",
+        "defaultScope": "aps.design",
+        "mainFile": "index.ts",
+        "rootDir": "aps.design/transformers/tailwind",
+        "config": {
+            "teambit.node/node@1.0.101": {},
+            "teambit.envs/envs": {
+                "env": "teambit.node/node"
+            },
+            "teambit.component/deprecation": {
+                "deprecate": false,
+                "newId": ""
+            },
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {}
+            },
+            "teambit.harmony/application": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.preview/preview": {},
+            "teambit.component/dev-files": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {
+                "forkedFrom": {
+                    "scope": "aps.design",
+                    "name": "transformers/tailwind",
+                    "version": "2.1.1"
+                }
+            },
             "teambit.semantics/schema": {}
         }
     },

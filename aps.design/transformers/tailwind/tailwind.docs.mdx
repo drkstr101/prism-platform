@@ -1,0 +1,42 @@
+---
+description: Webpack Transformer for Tailwind CSS
+tags: ['tailwind', 'css', 'transformer', 'webpack']
+---
+
+To provide your component previews with Tailwind support, set your env with the Tailwind transformer.
+
+Read the full blog post [here](https://bit.dev/blog/integrating-tailwind-css-and-bit-for-component-styling-lgntqstt/).
+
+Run the following to install the Tailwind webpack transformer in your workspace:
+
+```bash
+bit install @aps/design.transformers.tailwind
+```
+
+Head over to your env’s `*.env.ts` file, implement the preview service, and add the Tailwind webpack transformer to it:
+
+```ts
+/* @filename: react-tailwind.env.ts */
+import { Preview } from '@teambit/preview';
+import { tailwindTransformer } from '@aps/design.transformers.tailwind';
+
+export class ReactTailwindEnv extends ReactEnv {
+  name = 'react-tailwind-env';
+
+  // customize the component preview to include tailwind
+  preview(): EnvHandler<Preview> {
+    return ReactPreview.from({
+      mounter: require.resolve('./preview/mounter'),
+      transformers: [tailwindTransformer({})],
+    });
+  }
+}
+
+export default new ReactTailwindEnv();
+```
+
+Run the following to start your workspace and see the Tailwind styles applied to your components’ previews:
+
+```bash
+bit start
+```
